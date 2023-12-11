@@ -1,0 +1,119 @@
+openapi: 3.0.3
+info:
+  title: OpenAPI specification for Erp System
+  description: API specification for an Erp system....
+  termsOfService: http://localhost:3000/api/v1/tos
+  contact:
+    name: Layhi Abdessamad
+    email: desafio@erp.com
+  license:
+    name: mit
+  version: '1.0'
+externalDocs:
+  description: more docs on the api
+  url: http://localhost:3000/apidocs
+servers: 
+  - url: http://localhost:3000/api/v1
+    description: development server
+    
+tags: 
+  - name: Erp search
+    description: Erp genearl search for sales, purchases, products, equipments and workforce
+    externalDocs:
+      url: http://localhost:3000/api/v1/searchdocs
+paths:
+  /search:
+    post:
+      summary: Search for items
+      description: Endpoint to search for items based on a search query introduce in the serch box.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                query:
+                  type: string
+                  description: The search query.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              example:
+                results:
+                  - object1
+                  - object2
+                  - object3
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              example:
+                error: "No search term was provided"
+  /sales:
+    get:
+      summary: Get sales data
+      description: Retrieve information about sales.
+      tags:
+        - Sales
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              example:
+                salesData: [ ... ]               
+  /purchases:
+    get:
+      summary: Get Purchases data
+      description: Retrieve information about Purchases.
+      tags:
+        - Purchases
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              example:
+                PurchasesData: [ ... ]                
+  /Products:
+    get:
+      summary: Get Products data
+      description: Retrieve information about Products.
+      tags:
+        - Products
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              example:
+                ProductsData: [ ... ]         
+  /Equipments:
+    get:
+      summary: Get equipments data
+      description: Retrieve information about Equipments.
+      tags:
+        - Equipments
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              example:
+                salesData: [ ... ]  
+  /Workforce:
+    get:
+      summary: Get workforce data
+      description: Retrieve information about Workforce.
+      tags:
+        - Workforce
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              example:
+                salesData: [ ... ]           

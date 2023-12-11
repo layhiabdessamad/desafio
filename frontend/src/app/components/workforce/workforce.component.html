@@ -1,0 +1,27 @@
+<div
+  class="card"
+  [ngStyle]="{ display: show && workforce.length >= 0 ? 'block' : 'none' }"
+>
+  <div class="card-header d-flex justify-content-between">
+    <h5 class="card-title">Mao de obra</h5>
+    <span>{{ workforce.length }} itens encontrados</span>
+  </div>
+  <div class="card-body">
+    <table>
+      <tr *ngFor="let item of workforce">
+        <td class="p-2">
+          <a href="" class="idlink">#{{ item.WorkforceID }}</a>
+        </td>
+        <td class="p-2">{{ item.Name }}</td>
+        <td class="p-2">{{ item.Shift }}</td>
+      </tr>
+    </table>
+    <div
+      [ngStyle]="{ display: workforce.length === 0 ? 'block' : 'none' }"
+      class="alert alert-warning"
+      role="alert"
+    >
+      Nenhum item encontrado.
+    </div>
+  </div>
+</div>

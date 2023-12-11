@@ -1,0 +1,29 @@
+@import "bootstrap/dist/css/bootstrap.css";
+
+.container {
+  max-width: 550px;
+  padding: 20px;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+}
+
+
+/* Search card  */
+.card {
+  margin-top: 0.75rem;
+}
+
+.idlink {
+  color: red;
+  text-decoration: underline;
+}
+
+/* Media queries */
+@media (max-width: 550px) {
+  .container {
+    padding: 5px; /* Adjust padding for smaller screens */
+  }
+}

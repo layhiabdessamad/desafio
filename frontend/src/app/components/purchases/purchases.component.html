@@ -1,0 +1,27 @@
+<div
+  class="card"
+  [ngStyle]="{ display: show && purchases.length >= 0 ? 'block' : 'none' }"
+>
+  <div class="card-header d-flex justify-content-between">
+    <h5 class="card-title">Pedidos de compra</h5>
+    <span>{{ purchases.length }} itens encontrados</span>
+  </div>
+  <div class="card-body">
+    <table>
+      <tr *ngFor="let item of purchases">
+        <td class="p-2" width="15%">
+          <a href="#" class="idlink">#{{ item.PurchaseOrderID }}</a>
+        </td>
+        <td class="p-2">{{ item.MaterialName }}</td>
+        <td class="p-2" width="25%">Qtd {{ item.Quantity }} pç</td>
+      </tr>
+    </table>
+    <div
+      [ngStyle]="{ display: purchases.length === 0 ? 'block' : 'none' }"
+      class="alert alert-warning"
+      role="alert"
+    >
+      Nenhum item encontrado.
+    </div>
+  </div>
+</div>
